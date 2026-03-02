@@ -9,7 +9,10 @@ df = pd.read_csv(
     "../Data/resale_and_rental_applications.csv"
 )
 
+# Get the unique years in the dataset
 unique_years_ndarray = df["financial_year"].unique()
+
+# Join the years into a string with a comma and a space
 unique_years_str = ", ".join(
     map(
         str,
@@ -18,7 +21,10 @@ unique_years_str = ", ".join(
 )
 print(f"Years in dataset: {unique_years_str}")
 
+# Dynamically get the minimum year in the dataset
 data_minimum_year = df["financial_year"].min()
+
+# Dynamically get the maximum year in the dataset
 data_maximum_year = df["financial_year"].max()
 
 while True:
