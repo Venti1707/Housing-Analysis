@@ -85,7 +85,6 @@ sns.lineplot(
     ax = ax
 )
 
-
 # Make a NumPy array for the x-axis ticks based off the minimum and maximum year inputted by the user
 x_axis_ticks = np.arange(
     input_minimum_year,
