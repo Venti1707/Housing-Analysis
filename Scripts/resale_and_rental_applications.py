@@ -27,6 +27,7 @@ data_minimum_year = df["financial_year"].min()
 # Dynamically get the maximum year in the dataset
 data_maximum_year = df["financial_year"].max()
 
+# Year type inputs
 while True:
     try:
         input_minimum_year = int( # Get the minimum year the user wants to see
