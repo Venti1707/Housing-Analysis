@@ -12,7 +12,7 @@ df = pd.read_csv(
 
 # Make a new column called "year" based off the quarter column
 df_year = df.copy()
-df_year["year"] = df_year["quarter"].str[:4].astype(int) # Extract the last 4 years
+df_year["year"] = df_year["quarter"].str[:4].astype(int) # Extract the first 4 characters, which gives the year
 
 # Group the years together
 df_grouped = df_year.copy()
