@@ -123,7 +123,7 @@ ax.set_ylabel(
 # Create a legend
 ax.legend(
     df_final.columns,
-    bbox_to_anchor = (1, 1),
+    bbox_to_anchor = (1, 1)
 )
 
 # Check if the Charts folder exists; If not, create it
