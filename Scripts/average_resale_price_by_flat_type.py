@@ -5,35 +5,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
-# Get the data files
-resale_1 = pd.read_csv(
-    "../Data/resale_prices_from_2012-03_to_2014-12.csv"
-)
-
-resale_2 = pd.read_csv(
-    "../Data/resale_prices_from_2015-01_to_2016-12.csv"
-)
-
-resale_3 = pd.read_csv(
-    "../Data/resale_prices_from_2017-01_to_present.csv"
-)
-
-# Concat them into a singular dataframe
-resale_all = pd.concat(
-    [resale_1, resale_2, resale_3],
-    ignore_index = True,
-)
-
-# Fill the values that are NaN with "No data"
-resale_all_na_filled = resale_all.fillna("No data")
-
-# Export it into a new CSV file
-resale_all_na_filled.to_csv(
-    "../Data/resale_prices_2012-03_to_present.csv",
-    index = False
-)
-
-# Read said CSV file
+# Read from the CSV file which contains all resale data
 df = pd.read_csv(
     "../Data/resale_prices_2012-03_to_present.csv",
     usecols = [ # Only read the relevant columns
@@ -126,6 +98,7 @@ df_filter_pt_1 = df_filter_pt_1[df_filter_pt_1["year"] >= input_minimum_year]
 df_filter_pt_2 = df_filter_pt_1.copy()
 df_filter_pt_2 = df_filter_pt_2[df_filter_pt_2["year"] <= input_maximum_year]
 
+# Filter the data based off the selected flat types
 df_filter_pt_3 = df_filter_pt_2.copy()
 df_filter_pt_3 = df_filter_pt_3[df_filter_pt_3["flat_type"].isin(selected_flat_types)]
 
