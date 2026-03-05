@@ -28,10 +28,10 @@ unique_years_str = ", ".join(
 print(f"Years in dataset: {unique_years_str}")
 
 # Dynamically get the minimum year in the dataset
-data_minimum_year = df_grouped["year"].min()
+data_minimum_year = unique_years_ndarray.min()
 
 # Dynamically get the maximum year in the dataset
-data_maximum_year = df_grouped["year"].max()
+data_maximum_year = unique_years_ndarray.max()
 
 while True:
     try:
