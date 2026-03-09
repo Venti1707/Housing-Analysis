@@ -19,6 +19,7 @@ unique_years_str = ", ".join(
         unique_years_ndarray.tolist()
     )
 )
+
 print(f"Years in dataset: {unique_years_str}")
 
 # Dynamically get the minimum year in the dataset
