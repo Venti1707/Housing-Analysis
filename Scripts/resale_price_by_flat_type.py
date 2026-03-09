@@ -24,15 +24,15 @@ df_grouped = df_year.copy()
 
 # Summary statistic input
 while True:
-    summary_statistic_input = input("Enter the way you want to summarize the data ('mean' or 'median'): ")
+    input_summary_statistic = input("Enter the way you want to summarize the data ('mean' or 'median'): ")
 
     # Mean
-    if (summary_statistic_input.lower() == "mean"):
+    if (input_summary_statistic.lower() == "mean"):
         df_grouped = df_grouped.groupby(["year", "flat_type"])["resale_price"].mean().reset_index(name = "resale_price_summarized")
         break
 
     # Median
-    elif (summary_statistic_input.lower() == "median"):
+    elif (input_summary_statistic.lower() == "median"):
         df_grouped = df_grouped.groupby(["year", "flat_type"])["resale_price"].median().reset_index(name = "resale_price_summarized")
         break
 
@@ -93,13 +93,13 @@ print(f"Flat types in dataset: {", ".join(unique_flat_types)}")
 
 # Flat type inputs
 while True:
-    flat_type_input = input("Enter the flat types you would like to see separated by commas, or type 'all': ")
+    input_flat_type = input("Enter the flat types you would like to see separated by commas, or type 'all': ")
 
-    if flat_type_input.lower() == "all":
+    if input_flat_type.lower() == "all":
         selected_flat_types = unique_flat_types
         break
 
-    selected_flat_types = [flat_type.strip() for flat_type in flat_type_input.split(", ")]
+    selected_flat_types = [flat_type.strip() for flat_type in input_flat_type.split(", ")]
 
     # Validate input
     if all(flat_type in unique_flat_types for flat_type in selected_flat_types):
@@ -143,7 +143,7 @@ ax.set_xticks(x_axis_ticks)
 
 # Set the title of the chart
 ax.set_title(
-    f"{summary_statistic_input.title()} resale price for {(', '.join(selected_flat_types)).title()} flats from {input_minimum_year} to {input_maximum_year}",
+    f"{input_summary_statistic.title()} resale price for {(', '.join(selected_flat_types)).title()} flats from {input_minimum_year} to {input_maximum_year}",
     fontweight = "bold"
 )
 
@@ -155,7 +155,7 @@ ax.set_xlabel(
 
 # Set the label of the y-axis
 ax.set_ylabel(
-    f"{summary_statistic_input.title()} resale price",
+    f"{input_summary_statistic.title()} resale price",
     fontweight = "bold"
 )
 
