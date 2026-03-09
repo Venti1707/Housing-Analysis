@@ -178,6 +178,7 @@ unique_years_str = ", ".join(
         unique_years_ndarray.tolist()
     )
 )
+
 print(f"Years in dataset: {unique_years_str}")
 
 # Dynamically get the minimum year in the dataset
@@ -221,6 +222,7 @@ while True:
 
 # Get the unique region in the dataset for a custom view
 unique_regions_ndarray = df_year["region"].unique()
+
 print(f"Regions in dataset: {", ".join(unique_regions_ndarray)}")
 
 # Region inputs
