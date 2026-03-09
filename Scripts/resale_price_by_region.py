@@ -145,7 +145,6 @@ df_year["year"] = df_year["month"].dt.year
 
 # Group the data based off the region and year, summarized by the median of the resale prices
 df_grouped = df_year.copy()
-# df_grouped = df_year.groupby(["year", "region"])["resale_price"].median().reset_index(name = "median_resale_price")
 
 fig, ax = plt.subplots(
     figsize = (16, 9)
