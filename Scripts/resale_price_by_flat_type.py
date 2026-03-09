@@ -47,6 +47,7 @@ unique_years_str = ", ".join(
         unique_years_ndarray.tolist()
     )
 ) # Join the years into a string with a comma and a space
+
 print(f"Years in dataset: {unique_years_str}")
 
 # Dynamically get the minimum year in the dataset
@@ -89,6 +90,7 @@ while True:
         print("Please enter valid numeric years.")
 
 unique_flat_types = df_grouped["flat_type"].unique()
+
 print(f"Flat types in dataset: {", ".join(unique_flat_types)}")
 
 # Flat type inputs
