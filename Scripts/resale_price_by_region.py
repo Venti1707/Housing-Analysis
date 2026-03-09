@@ -153,15 +153,15 @@ fig, ax = plt.subplots(
 
 # Summary statistic input
 while True:
-    summary_statistic_input = input("Enter the way you want to summarize the data ('mean' or 'median'): ")
+    input_summary_statistic = input("Enter the way you want to summarize the data ('mean' or 'median'): ")
 
     # Mean
-    if (summary_statistic_input.lower() == "mean"):
+    if (input_summary_statistic.lower() == "mean"):
         df_grouped = df_grouped.groupby(["year", "region"])["resale_price"].mean().reset_index(name = "resale_price_summarized")
         break
 
     # Median
-    elif (summary_statistic_input.lower() == "median"):
+    elif (input_summary_statistic.lower() == "median"):
         df_grouped = df_grouped.groupby(["year", "region"])["resale_price"].median().reset_index(name = "resale_price_summarized")
         break
 
@@ -226,13 +226,13 @@ print(f"Regions in dataset: {", ".join(unique_regions_ndarray)}")
 
 # Region inputs
 while True:
-    region_input = input("Enter the regions you would like to see separated by commas, or type 'all': ")
+    input_region = input("Enter the regions you would like to see separated by commas, or type 'all': ")
 
-    if region_input.lower() == "all":
+    if input_region.lower() == "all":
         selected_regions = unique_regions_ndarray
         break
 
-    selected_regions = [town.strip() for town in region_input.split(", ")]
+    selected_regions = [town.strip() for town in input_region.split(", ")]
 
     # Validate input
     if all(region in unique_regions_ndarray for region in selected_regions):
@@ -271,14 +271,14 @@ x_axis_ticks = np.arange(
 ax.set_xticks(x_axis_ticks)
 
 # Set the title of the chart based off how many towns are selected
-if (region_input.split(", ") == 1):
+if (input_region.split(", ") == 1):
     ax.set_title(
-        f"{summary_statistic_input.title()} resale price for flats in the {(', '.join(selected_regions)).title()} region from {input_minimum_year} to {input_maximum_year}",
+        f"{input_summary_statistic.title()} resale price for flats in the {(', '.join(selected_regions)).title()} region from {input_minimum_year} to {input_maximum_year}",
         fontweight = "bold"
     )
 else:
     ax.set_title(
-        f"{summary_statistic_input.title()} resale price for flats in the {(', '.join(selected_regions)).title()} regions from {input_minimum_year} to {input_maximum_year}",
+        f"{input_summary_statistic.title()} resale price for flats in the {(', '.join(selected_regions)).title()} regions from {input_minimum_year} to {input_maximum_year}",
         fontweight = "bold"
     )
 
@@ -290,7 +290,7 @@ ax.set_xlabel(
 
 # Set the label of the y-axis
 ax.set_ylabel(
-    f"{summary_statistic_input.title()} resale price",
+    f"{input_summary_statistic.title()} resale price",
     fontweight = "bold"
 )
 
